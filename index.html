@@ -1,68 +1,57 @@
-```javascript
-const templates = {
-    TBS: {
-        header: `
-<div id="emble<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>SyllaGen Enhanced with Layout Options</title>
-    <link rel="stylesheet"-customise-7d97b62b" class="customise emble emble-banner emble-prevent href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>SyllaGen Enhanced with Layout Options</h1>
--insert emble-prevent-delete-recursive emble-banner-theme-rmit-light" style="padding: 0px; margin: 0px;" title="embedded content" data-context-menu="customise delete" data-custom    <form id="syllabus-form">
+    <form id="syllabus-form">
         <label for="user-html">Paste User HTML:</label>
-        <textarea id="user-html" rows="6" required placeholder="Paste the HTML of the new syllabus page hereise="new-banner-theme" data-emble-name="Banner" data-emble-version="2.0">
-    <div>
-        <div style="display: grid; grid-template-columns: repeat(20,1fr); grid-auto-rows: 1fr; height: auto;">
-            <div style="grid-column: 1/21; grid-row: 1/12; z-index: 1; height: 100%; overflow: hidden; position: relative;">
-                <div style"></textarea>
+        <textarea id="user-html" rows="6" required placeholder="Paste the HTML of the new syllabus page here"></textarea>
 
         <label for="course-promise">Course Promise:</label>
-        <textarea id="course-="width: 1040px; height: 100%;"><img style="display: block; minpromise" rows="4" required placeholder="Join this course and gain X. You will leave with X."></textarea>
+        <textarea id="course-promise" rows="4" required placeholder="Join this course and gain X. You will leave with X."></textarea>
 
--height: 100%; width: 1040px; top: 0; left: 0;" role="presentation;" src="/courses/120329/files/44056963/preview" alt="" data-ally-user-updated-alt="" data-decorative="true" data-api-returntype="File" data-api-endpoint="https://rmit.instructure.com/api/        <label for="school">Select School (Override if not detected):</label>
+        <label for="school">Select School (Override if not detected):</label>
         <select id="school">
             <option value="TBS">TBS - The Business School</option>
-            <option value="SSETv1/courses/119776/files/44056963" /></div>">SSET - School of Science, Engineering & Technology</option>
-            <option value="SCD">SCD - School
-            </div>
-            <h2 style="grid-column: 2/20; grid-row: 4 of Communication Design</option>
+            <option value="SSET">SSET - School of Science, Engineering & Technology</option>
+            <option value="SCD">SCD - School of Communication Design</option>
         </select>
 
         <!-- This is the new container for the SCD program dropdown -->
         <div id="scd-program-container" style="display: none;">
-            <label for="scd-/10; z-index: 3; max-width: 100%;"><span style="verticalprogram">Select SCD Program:</label>
+            <label for="scd-program">Select SCD Program:</label>
             <select id="scd-program">
                 <option value="gameDesign">Game Design</option>
-                <option value="filmAndVideo">Film & Video</option-align: middle; display: inline-block; text-align: left; color: #22216>
+                <option value="filmAndVideo">Film & Video</option>
                 <option value="language">Language</option>
                 <option value="fashionEnterprise">Fashion Enterprise</option>
                 <option value="digitalMedia">Digital Media</option>
                 <option value="designStudies">Design Studies</option>
                 <option value="profcomDigitalCommunication">Profcom - Digital Communication</option>
                 <option value="profcomAdvertising">Profcom - Advertising</option>
-                <option value="0; text-decoration: none; font-family: museo700; font-size: 32pt;"><profcomPublicRelations">Profcom - Public Relations</option>
+                <option value="profcomPublicRelations">Profcom - Public Relations</option>
             </select>
         </div>
 
-        <label forspan class="stem-header-box-decoration-break" style="background-color: #e3e5="layout-choice">Select Layout:</label>
+        <label for="layout-choice">Select Layout:</label>
         <select id="layout-choice" onchange="generateModuleFields()">
             <option value="12">12 Modules (3 columns)</option>
             <option value="8">8 Modules (2 columns)</option>
         </select>
 
-        <div id="module-container">e0; padding: 3px 15px; font-size: 32pt;">{{courseName}}</span></span><br /><span style="color: #ffffff; font-family: museo300;"><span style="font-size</div>
+        <div id="module-container"></div>
 
         <button type="submit">Generate Code</button>
-        <button type="button" id="copy: 16px; background-color: #e61e2a; padding: 3px -button" style="display: none;">Copy Code</button>
+        <button type="button" id="copy-button" style="display: none;">Copy Code</button>
     </form>
 
-    <h2>Generated Code:15px;"><strong>{{courseCode}} | {{schoolName}}</strong></span></span></h2>
-            <div class="em</h2>
+    <h2>Generated Code:</h2>
     <div id="generated-code"></div>
 
     <script src="script.js"></script>
-ble-banner-accent" style="z-index: 2; grid-row: 10/12</body>
+</body>
 </html>

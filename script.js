@@ -59,62 +59,10 @@ const templates = {
         </div>
     </div>
 </div>`,
-        imageSrcs: [
-            "/courses/120329/files/44053587/preview",
-            "/courses/120329/files/44053588/preview",
-            "/courses/120329/files/44053589/preview",
-            "/courses/120329/files/30651988/preview",
-            "/courses/120329/files/30651979/preview",
-            "/courses/120329/files/30651986/preview",
-            "/courses/120329/files/30651982/preview",
-            "/courses/120329/files/30651983/preview",
-            "/courses/120329/files/30651980/preview",
-            "/courses/120329/files/30651984/preview",
-            "/courses/120329/files/30651985/preview",
-            "/courses/120329/files/30651987/preview"
-        ],
-        imageEndpoints: [
-            "https://rmit.instructure.com/api/v1/courses/119776/files/44053587",
-            "https://rmit.instructure.com/api/v1/courses/116733/files/44053588",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/44053589",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419416",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419422",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419414",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419417",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419420",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419412",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419415",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419423",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419421"
-        ],
-        moduleLinks: [
-            "/courses/120329/modules/items/5085622",
-            "/courses/120329/modules/items/5085633",
-            "/courses/120329/modules/items/5085644",
-            "/courses/120329/modules/items/5085655",
-            "/courses/120329/modules/items/5085666",
-            "/courses/120329/modules/items/5085677",
-            "/courses/120329/modules/items/5085688",
-            "/courses/120329/modules/items/5085699",
-            "/courses/120329/modules/items/5085710",
-            "/courses/120329/modules/items/5085721",
-            "/courses/120329/modules/items/5085732",
-            "/courses/120329/modules/items/5085743"
-        ],
-        moduleEndpoints: [
-            "https://rmit.instructure.com/api/v1/courses/119776/pages/1-dot-0-%257C-overview",
-            "/courses/120329/modules/items/5085633",
-            "/courses/120329/modules/items/5085644",
-            "https://rmit.instructure.com/api/v1/courses/119776/pages/4-dot-0-%257C-overview",
-            "https://rmit.instructure.com/api/v1/courses/119776/pages/5-dot-0-%257C-overview",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g8293266912e11f94ce998fe9b867bc68",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g0209280223144c3360b5f8e5a0edbfb3",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g8c489ddfcf14b15b5922051bec8aca50",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g04e7b8e554273d58e6af8ae79ce08629",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/gcc39d9fe92dc75b9b3bba9f91238959d",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g98ecd0afd24db9c9cdcaf9740f615a63",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g862ce18abc82e8d747f5d125c7b5261a"
-        ]
+        imageSrcs: ["/courses/120329/files/44053587/preview", "/courses/120329/files/44053588/preview", "/courses/120329/files/44053589/preview", "/courses/120329/files/30651988/preview", "/courses/120329/files/30651979/preview", "/courses/120329/files/30651986/preview", "/courses/120329/files/30651982/preview", "/courses/120329/files/30651983/preview", "/courses/120329/files/30651980/preview", "/courses/120329/files/30651984/preview", "/courses/120329/files/30651985/preview", "/courses/120329/files/30651987/preview"],
+        imageEndpoints: ["https://rmit.instructure.com/api/v1/courses/119776/files/44053587", "https://rmit.instructure.com/api/v1/courses/116733/files/44053588", "https://rmit.instructure.com/api/v1/courses/119776/files/44053589", "https://rmit.instructure.com/api/v1/courses/119776/files/30419416", "https://rmit.instructure.com/api/v1/courses/119776/files/30419422", "https://rmit.instructure.com/api/v1/courses/119776/files/30419414", "https://rmit.instructure.com/api/v1/courses/119776/files/30419417", "https://rmit.instructure.com/api/v1/courses/119776/files/30419420", "https://rmit.instructure.com/api/v1/courses/119776/files/30419412", "https://rmit.instructure.com/api/v1/courses/119776/files/30419415", "https://rmit.instructure.com/api/v1/courses/119776/files/30419423", "https://rmit.instructure.com/api/v1/courses/119776/files/30419421"],
+        moduleLinks: ["/courses/120329/modules/items/5085622", "/courses/120329/modules/items/5085633", "/courses/120329/modules/items/5085644", "/courses/120329/modules/items/5085655", "/courses/120329/modules/items/5085666", "/courses/120329/modules/items/5085677", "/courses/120329/modules/items/5085688", "/courses/120329/modules/items/5085699", "/courses/120329/modules/items/5085710", "/courses/120329/modules/items/5085721", "/courses/120329/modules/items/5085732", "/courses/120329/modules/items/5085743"],
+        moduleEndpoints: ["https://rmit.instructure.com/api/v1/courses/119776/pages/1-dot-0-%257C-overview", "/courses/120329/modules/items/5085633", "/courses/120329/modules/items/5085644", "https://rmit.instructure.com/api/v1/courses/119776/pages/4-dot-0-%257C-overview", "https://rmit.instructure.com/api/v1/courses/119776/pages/5-dot-0-%257C-overview", "$CANVAS_COURSE_REFERENCE$/modules/items/g8293266912e11f94ce998fe9b867bc68", "$CANVAS_COURSE_REFERENCE$/modules/items/g0209280223144c3360b5f8e5a0edbfb3", "$CANVAS_COURSE_REFERENCE$/modules/items/g8c489ddfcf14b15b5922051bec8aca50", "$CANVAS_COURSE_REFERENCE$/modules/items/g04e7b8e554273d58e6af8ae79ce08629", "$CANVAS_COURSE_REFERENCE$/modules/items/gcc39d9fe92dc75b9b3bba9f91238959d", "$CANVAS_COURSE_REFERENCE$/modules/items/g98ecd0afd24db9c9cdcaf9740f615a63", "$CANVAS_COURSE_REFERENCE$/modules/items/g862ce18abc82e8d747f5d125c7b5261a"]
     },
     SSET: {
         header: `
@@ -175,62 +123,10 @@ const templates = {
         </div>
     </div>
 </div>`,
-        imageSrcs: [
-            "/courses/137273/files/37388452/preview",
-            "/courses/137273/files/37388453/preview",
-            "/courses/137273/files/37388454/preview",
-            "/courses/137273/files/37388455/preview",
-            "/courses/137273/files/37388456/preview",
-            "/courses/137273/files/37388457/preview",
-            "/courses/137273/files/37388458/preview",
-            "/courses/137273/files/37388459/preview",
-            "/courses/137273/files/37388460/preview",
-            "/courses/137273/files/37388461/preview",
-            "/courses/137273/files/37388462/preview",
-            "/courses/137273/files/37388463/preview"
-        ],
-        imageEndpoints: [
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419413",
-            "https://rmit.instructure.com/api/v1/courses/116733/files/28482794",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419418",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419416",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419422",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419414",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419417",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419420",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419412",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419415",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419423",
-            "https://rmit.instructure.com/api/v1/courses/119776/files/30419421"
-        ],
-        moduleLinks: [
-            "/courses/137273/modules/items/6140119",
-            "/courses/137273/modules/items/6140130",
-            "/courses/137273/modules/items/6140141",
-            "/courses/137273/modules/items/6140152",
-            "/courses/137273/modules/items/6140163",
-            "/courses/137273/modules/items/6140174",
-            "/courses/137273/modules/items/6140185",
-            "/courses/137273/modules/items/6140199",
-            "/courses/137273/modules/items/6140210",
-            "/courses/137273/modules/items/6140221",
-            "/courses/137273/modules/items/6140232",
-            "/courses/137273/modules/items/6140243"
-        ],
-        moduleEndpoints: [
-            "https://rmit.instructure.com/api/v1/courses/119776/pages/1-dot-0-%257C-overview",
-            "/courses/137273/modules/items/6140130",
-            "/courses/137273/modules/items/6140141",
-            "https://rmit.instructure.com/api/v1/courses/119776/pages/4-dot-0-%257C-overview",
-            "https://rmit.instructure.com/api/v1/courses/119776/pages/5-dot-0-%257C-overview",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g8293266912e11f94ce998fe9b867bc68",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g0209280223144c3360b5f8e5a0edbfb3",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g8c489ddfcf14b15b5922051bec8aca50",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g04e7b8e554273d58e6af8ae79ce08629",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/gcc39d9fe92dc75b9b3bba9f91238959d",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g98ecd0afd24db9c9cdcaf9740f615a63",
-            "$CANVAS_COURSE_REFERENCE$/modules/items/g862ce18abc82e8d747f5d125c7b5261a"
-        ]
+        imageSrcs: ["/courses/137273/files/37388452/preview", "/courses/137273/files/37388453/preview", "/courses/137273/files/37388454/preview", "/courses/137273/files/37388455/preview", "/courses/137273/files/37388456/preview", "/courses/137273/files/37388457/preview", "/courses/137273/files/37388458/preview", "/courses/137273/files/37388459/preview", "/courses/137273/files/37388460/preview", "/courses/137273/files/37388461/preview", "/courses/137273/files/37388462/preview", "/courses/137273/files/37388463/preview"],
+        imageEndpoints: ["https://rmit.instructure.com/api/v1/courses/119776/files/30419413", "https://rmit.instructure.com/api/v1/courses/116733/files/28482794", "https://rmit.instructure.com/api/v1/courses/119776/files/30419418", "https://rmit.instructure.com/api/v1/courses/119776/files/30419416", "https://rmit.instructure.com/api/v1/courses/119776/files/30419422", "https://rmit.instructure.com/api/v1/courses/119776/files/30419414", "https://rmit.instructure.com/api/v1/courses/119776/files/30419417", "https://rmit.instructure.com/api/v1/courses/119776/files/30419420", "https://rmit.instructure.com/api/v1/courses/119776/files/30419412", "https://rmit.instructure.com/api/v1/courses/119776/files/30419415", "https://rmit.instructure.com/api/v1/courses/119776/files/30419423", "https://rmit.instructure.com/api/v1/courses/119776/files/30419421"],
+        moduleLinks: ["/courses/137273/modules/items/6140119", "/courses/137273/modules/items/6140130", "/courses/137273/modules/items/6140141", "/courses/137273/modules/items/6140152", "/courses/137273/modules/items/6140163", "/courses/137273/modules/items/6140174", "/courses/137273/modules/items/6140185", "/courses/137273/modules/items/6140199", "/courses/137273/modules/items/6140210", "/courses/137273/modules/items/6140221", "/courses/137273/modules/items/6140232", "/courses/137273/modules/items/6140243"],
+        moduleEndpoints: ["https://rmit.instructure.com/api/v1/courses/119776/pages/1-dot-0-%257C-overview", "/courses/137273/modules/items/6140130", "/courses/137273/modules/items/6140141", "https://rmit.instructure.com/api/v1/courses/119776/pages/4-dot-0-%257C-overview", "https://rmit.instructure.com/api/v1/courses/119776/pages/5-dot-0-%257C-overview", "$CANVAS_COURSE_REFERENCE$/modules/items/g8293266912e11f94ce998fe9b867bc68", "$CANVAS_COURSE_REFERENCE$/modules/items/g0209280223144c3360b5f8e5a0edbfb3", "$CANVAS_COURSE_REFERENCE$/modules/items/g8c489ddfcf14b15b5922051bec8aca50", "$CANVAS_COURSE_REFERENCE$/modules/items/g04e7b8e554273d58e6af8ae79ce08629", "$CANVAS_COURSE_REFERENCE$/modules/items/gcc39d9fe92dc75b9b3bba9f91238959d", "$CANVAS_COURSE_REFERENCE$/modules/items/g98ecd0afd24db9c9cdcaf9740f615a63", "$CANVAS_COURSE_REFERENCE$/modules/items/g862ce18abc82e8d747f5d125c7b5261a"]
     },
     SCD: {
         header: `
@@ -253,12 +149,12 @@ const templates = {
         <tr>
             <td style="width: 100%; padding: 20px;">
                 <p><span dir="ltr">{{coursePromise}}</span></p>
-                <p><span><span class="TextRun SCXW24004924 BCX0" lang="EN-AU" data-contrast="auto"><span class="NormalTextRun SCXW24004924 BCX0">This Canvas course site will provide activities and materials to help you learn. You will also submit your <a class="inline_disabled" href="/courses/137273/assignments">assessments</a> here. If you're not sure how to do something, check out our <a class="inline_disabled" href="/courses/137273/pages/getting-help#canvas">help with Canvas</a>. </span></span></span></p>
-                <p id="emble-customise-5e591084" class="btn emble-btn customise emble-prevent-delete-recursive btn-blue" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a> <i class="icon-none"></i></a> <a class="inline_disabled" title="Link" href="/courses/137273/modules/items/6140111">Getting Started</a></p>
+                <p><span><span class="TextRun SCXW24004924 BCX0" lang="EN-AU" data-contrast="auto"><span class="NormalTextRun SCXW24004924 BCX0">This Canvas course site will provide activities and materials to help you learn. You will also submit your <a class="inline_disabled" href="#">assessments</a> here. If you're not sure how to do something, check out our <a class="inline_disabled" href="#">help with Canvas</a>. </span></span></span></p>
+                <p id="emble-customise-5e591084" class="btn emble-btn customise emble-prevent-delete-recursive btn-blue" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a> <i class="icon-none"></i></a> <a class="inline_disabled" title="Link" href="#">Getting Started</a></p>
                 <span> </span>
                 <p id="emble-customise-228a2824" class="btn emble-btn btn-blue customise emble-prevent-delete-recursive" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a><i class="icon-none"> </i></a><a class="inline_disabled" title="Link" href="http://www1.rmit.edu.au/browse;ID=msrkgrf8e6ef1" target="_blank" rel="noopener">Course Guide </a></p>
                 <span> </span>
-                <p id="emble-customise-228a2824" class="btn emble-btn btn-blue customise emble-prevent-delete-recursive" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a><i class="icon-none"> </i></a><a class="inline_disabled" title="Link" href="/courses/137273/modules/items/6140118">Digital Class Links</a></p>
+                <p id="emble-customise-228a2824" class="btn emble-btn btn-blue customise emble-prevent-delete-recursive" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a><i class="icon-none"> </i></a><a class="inline_disabled" title="Link" href="#">Digital Class Links</a></p>
             </td>
         </tr>
     </tbody>
@@ -340,9 +236,9 @@ const schoolNames = {
 
 // Function to show/hide the SCD program dropdown
 function handleSchoolChange() {
-    const schoolSelect = document.getElementById("school").value;
+    const schoolSelectValue = document.getElementById("school").value;
     const scdProgramContainer = document.getElementById("scd-program-container");
-    if (schoolSelect === 'SCD') {
+    if (schoolSelectValue === 'SCD') {
         scdProgramContainer.style.display = 'block';
     } else {
         scdProgramContainer.style.display = 'none';
@@ -436,23 +332,23 @@ document.getElementById("syllabus-form").addEventListener("submit", function(e) 
 
     let template;
     let imageSources;
+    let finalHeader;
 
     if (school === 'SCD') {
         const scdProgram = document.getElementById("scd-program").value;
         template = templates.SCD;
         const programData = templates.SCD.programs[scdProgram];
         imageSources = programData.imageSrcs;
-
-        // Replace the header image placeholder with the correct one for the selected program
-        template.header = templates.SCD.header.replace("{{headerImageSrc}}", programData.headerImageSrc);
+        finalHeader = templates.SCD.header.replace("{{headerImageSrc}}", programData.headerImageSrc);
     } else {
         template = templates[school];
         imageSources = template.imageSrcs;
+        finalHeader = template.header;
     }
     
     const moduleTemplate = layoutChoice === 12 ? template.moduleTemplate12 : template.moduleTemplate8;
 
-    let generatedCode = template.header
+    let generatedCode = finalHeader
         .replace("{{courseName}}", courseName)
         .replace("{{courseCode}}", courseCode)
         .replace("{{schoolName}}", schoolName)
@@ -463,17 +359,25 @@ document.getElementById("syllabus-form").addEventListener("submit", function(e) 
         const moduleName = document.querySelector(`input[name="module-name-${i}"]`).value;
         const topicAndContentAreas = document.querySelector(`textarea[name="topic-and-content-areas-${i}"]`).value;
 
-        // For SCD, module links are not defined in the template, so they fall back to '#'
-        const moduleLink = school === 'SCD' ? '#' : (newModuleLinks[i - 1] || template.moduleLinks[i - 1]);
-        const moduleEndpoint = school === 'SCD' ? '#' : (newModuleEndpoints[i - 1] || template.moduleEndpoints[i - 1]);
+        const moduleLink = (school !== 'SCD' && newModuleLinks[i-1]) ? newModuleLinks[i-1] : '#';
+        const moduleEndpoint = (school !== 'SCD' && newModuleEndpoints[i-1]) ? newModuleEndpoints[i-1] : '#';
 
-        const moduleHTML = moduleTemplate
+        let moduleHTML = moduleTemplate
             .replace("{{imageSrc}}", imageSources[i - 1])
-            .replace("{{moduleLink}}", moduleLink)
-            .replace("{{moduleEndpoint}}", moduleEndpoint)
             .replace("{{moduleNumber}}", i)
             .replace("{{moduleName}}", moduleName)
             .replace("{{topicAndContentAreas}}", topicAndContentAreas);
+
+        // Only add links and endpoints if they are not for the generic SCD template
+        if (school !== 'SCD') {
+             moduleHTML = moduleHTML
+                .replace("{{moduleLink}}", newModuleLinks[i - 1] || template.moduleLinks[i-1])
+                .replace("{{moduleEndpoint}}", newModuleEndpoints[i - 1] || template.moduleEndpoints[i-1]);
+        } else {
+             moduleHTML = moduleHTML
+                .replace('href="{{moduleLink}}"', 'href="#"')
+                .replace('data-api-endpoint="{{moduleEndpoint}}"', '');
+        }
 
         modulesHTML += moduleHTML;
 

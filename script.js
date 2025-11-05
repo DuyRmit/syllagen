@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="col-md-4">
                     <div class="module-box">
                         <h3>Module ${i}</h3>
-                        <label>New Module Name:</label>
-                        <input type="text" name="module-name-${i}" placeholder="Leave blank to keep original">
-                        <label>New Topic/Content:</label>
-                        <textarea name="topic-and-content-areas-${i}" rows="3" placeholder="Leave blank to keep original"></textarea>
+                        <label for="module-name-${i}">New Module Name:</label>
+                        <input type="text" id="module-name-${i}" name="module-name-${i}" placeholder="Leave blank to keep original">
+                        <label for="topic-and-content-areas-${i}">New Topic/Content:</label>
+                        <textarea id="topic-and-content-areas-${i}" name="topic-and-content-areas-${i}" rows="3" placeholder="Leave blank to keep original"></textarea>
                     </div>
                 </div>
             `;
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (weekNumber === ilwPosition) return "ILW";
         let letterIndex = (weekNumber < ilwPosition) ? weekNumber - 1 : weekNumber - 2;
         const maxLetters = totalWeeks === 12 ? 11 : 7;
-        if (letterIndex < maxLetters) return "T" + String.fromCharCode(65 + letterIndex);
+        if (letterIndex >= 0 && letterIndex < maxLetters) return "T" + String.fromCharCode(65 + letterIndex);
         return "";
     }
 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. Get user inputs
         const userHTML = document.getElementById("user-html").value;
-        if (!userHTML) {
+        if (!userHTML.trim()) {
             alert("Please paste your syllabus HTML first.");
             return;
         }
@@ -135,15 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 4. Update the header banner image
-        const headerImage = doc.querySelector('.emble-banner img');
+        const headerImage = doc.querySelector('.emble-banner img, [id*="emble-customise"] img');
         if (headerImage && currentImageData.headerImageSrc) {
             headerImage.src = currentImageData.headerImageSrc;
         }
         
         // 5. Update the Course Promise
-        const coursePromiseElement = doc.querySelector('table.stem-bg-shadow p:first-child span');
-        if (coursePromiseElement) {
-            coursePromiseElement.textContent = coursePromise;
+        if (coursePromise.trim() !== "") {
+            const coursePromiseElement = doc.querySelector('table.stem-bg-shadow p:first-child span');
+            if (coursePromiseElement) {
+                coursePromiseElement.textContent = coursePromise;
+            }
         }
 
         // 6. Process each module
@@ -160,17 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // b. Update module name (if user provided one)
-            const newModuleName = document.querySelector(`input[name="module-name-${i}"]`).value;
+            const newModuleName = document.querySelector(`input[name="module-name-${moduleNumber}"]`).value;
             if (newModuleName.trim() !== "") {
                 const moduleNameElement = container.querySelector('h3 a span span'); // Deepest span holds the name
                 if (moduleNameElement) {
-                    // This regex preserves the number but replaces the text
                     moduleNameElement.innerHTML = moduleNameElement.innerHTML.replace(/(^\d+\.\s+)(.*)/, `$1${newModuleName}`);
                 }
             }
             
             // c. Update module description (if user provided one)
-            const newModuleDesc = document.querySelector(`textarea[name="topic-and-content-areas-${i}"]`).value;
+            const newModuleDesc = document.querySelector(`textarea[name="topic-and-content-areas-${moduleNumber}"]`).value;
             if (newModuleDesc.trim() !== "") {
                 const moduleDescElement = container.querySelector('p span');
                 if (moduleDescElement) {
@@ -187,13 +188,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // e. Inject data-ruvn-number attribute inside the title
             const titleLink = container.querySelector('h3 a');
             if (titleLink && !titleLink.querySelector('span[data-ruvn-number]')) {
-                const titleSpan = titleLink.querySelector('span > span'); // The span containing the text
-                if (titleSpan) {
-                    const match = titleSpan.textContent.match(/(\d+)/);
-                    if (match) {
-                        const number = match[1];
-                        titleSpan.innerHTML = titleSpan.innerHTML.replace(number, `<span data-ruvn-number="${number}">${number}</span>`);
-                    }
+                const titleSpan = titleLink.querySelector('span > span');
+                if (titleSpan && titleSpan.textContent.match(/\d+/)) {
+                     titleSpan.innerHTML = titleSpan.innerHTML.replace(/(\d+)/, `<span data-ruvn-number="$1">$1</span>`);
                 }
             }
         });
@@ -216,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- INITIALIZATION ---
     schoolSelect.addEventListener("change", handleSchoolChange);
+    document.getElementById("layout-choice").addEventListener("change", generateModuleFields);
     handleSchoolChange();
     generateModuleFields();
 });

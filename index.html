@@ -2,48 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SyllaGen Enhanced with Layout Options</title>
+    <title>SyllaGen - The Ultimate Syllabus Tool</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>SyllaGen Enhanced with Layout Options</h1>
+    <h1>SyllaGen - The Ultimate Syllabus Tool</h1>
+    <p>This tool updates your syllabus with new templates, content, and RUVN attributes while preserving your module links.</p>
+    
     <form id="syllabus-form">
-        <label for="user-html">Paste User HTML:</label>
-        <textarea id="user-html" rows="6" required placeholder="Paste the HTML of the new syllabus page here"></textarea>
+        <!-- Section 1: Core Content -->
+        <div class="form-section">
+            <h2>Step 1: Paste Your Code & Add Core Content</h2>
+            <label for="user-html">Paste Your Full Syllabus HTML:</label>
+            <textarea id="user-html" rows="10" required placeholder="Paste the complete HTML of your syllabus page here."></textarea>
 
-        <label for="course-promise">Course Promise:</label>
-        <textarea id="course-promise" rows="4" required placeholder="Join this course and gain X. You will leave with X."></textarea>
-
-        <label for="school">Select School (Override if not detected):</label>
-        <select id="school">
-            <option value="TBS">TBS - The Business School</option>
-            <option value="SSET">SSET - School of Science, Engineering & Technology</option>
-            <option value="SCD">SCD - School of Communication Design</option>
-        </select>
-
-        <!-- This is the container for the SCD program dropdown -->
-        <div id="scd-program-container" style="display: none;">
-            <label for="scd-program">Select SCD Program:</label>
-            <select id="scd-program">
-                <option value="gameDesign">Game Design</option>
-                <option value="filmAndVideo">Film & Video</option>
-                <option value="language">Language</option>
-                <option value="fashionEnterprise">Fashion Enterprise</option>
-                <option value="digitalMedia">Digital Media</option>
-                <option value="designStudies">Design Studies</option>
-                <option value="profcomDigitalCommunication">Profcom - Digital Communication</option>
-                <option value="profcomAdvertising">Profcom - Advertising</option>
-                <option value="profcomPublicRelations">Profcom - Public Relations</option>
-            </select>
+            <label for="course-promise">Course Promise:</label>
+            <textarea id="course-promise" rows="4" required placeholder="Join this course and gain X. You will leave with X."></textarea>
         </div>
 
-        <label for="layout-choice">Select Layout:</label>
-        <select id="layout-choice" onchange="generateModuleFields()">
-            <option value="12">12 Modules (3 columns)</option>
-            <option value="8">8 Modules (2 columns)</option>
-        </select>
+        <!-- Section 2: Template and Layout -->
+        <div class="form-section">
+            <h2>Step 2: Choose Template & Layout</h2>
+            <div class="grid-row">
+                <div class="col-md-6">
+                    <label for="school">Select School/Template:</label>
+                    <select id="school">
+                        <option value="TBS">TBS - The Business School</option>
+                        <option value="SSET">SSET - School of Science, Engineering & Technology</option>
+                        <option value="SCD">SCD - School of Communication Design</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <!-- This is the container for the SCD program dropdown -->
+                    <div id="scd-program-container" style="display: none;">
+                        <label for="scd-program">Select SCD Program:</label>
+                        <select id="scd-program">
+                            <option value="gameDesign">Game Design</option>
+                            <option value="filmAndVideo">Film & Video</option>
+                            <option value="language">Language</option>
+                            <option value="fashionEnterprise">Fashion Enterprise</option>
+                            <option value="digitalMedia">Digital Media</option>
+                            <option value="designStudies">Design Studies</option>
+                            <option value="profcomDigitalCommunication">Profcom - Digital Communication</option>
+                            <option value="profcomAdvertising">Profcom - Advertising</option>
+                            <option value="profcomPublicRelations">Profcom - Public Relations</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-        <div id="module-container"></div>
+            <div class="grid-row">
+                <div class="col-md-6">
+                    <label for="layout-choice">Select Total Number of Modules:</label>
+                    <select id="layout-choice" onchange="generateModuleFields()">
+                        <option value="12">12 Modules</option>
+                        <option value="8">8 Modules</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="ilw-position">Select ILW Position:</label>
+                    <select id="ilw-position">
+                        <option value="5">Week 5</option>
+                        <option value="6">Week 6</option>
+                        <option value="7" selected>Week 7 (Default)</option>
+                        <option value="8">Week 8</option>
+                        <option value="9">Week 9</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 3: Module Details -->
+        <div class="form-section">
+            <h2>Step 3: Fill in Module Details</h2>
+            <div id="module-container"></div>
+        </div>
 
         <button type="submit">Generate Code</button>
         <button type="button" id="copy-button" style="display: none;">Copy Code</button>

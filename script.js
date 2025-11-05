@@ -22,7 +22,7 @@ const schoolData = {
                 headerImageSrc: "https://rmit.instructure.com/courses/127983/files/33788546/preview",
                 imageSrcs: ["https://rmit.instructure.com/courses/127983/files/33788578/preview", "https://rmit.instructure.com/courses/127983/files/33789041/preview", "https://rmit.instructure.com/courses/127983/files/33789061/preview", "https://rmit.instructure.com/courses/127983/files/33789039/preview", "https://rmit.instructure.com/courses/127983/files/33789062/preview", "https://rmit.instructure.com/courses/127983/files/33788625/preview", "https://rmit.instructure.com/courses/127983/files/33789063/preview", "https://rmit.instructure.com/courses/127983/files/33788672/preview", "https://rmit.instructure.com/courses/127983/files/33789040/preview", "https://rmit.instructure.com/courses/127983/files/33788730/preview", "https://rmit.instructure.com/courses/127983/files/33789038/preview", "https://rmit.instructure.com/courses/127983/files/33789064/preview"]
             },
-             language: {
+            language: {
                 headerImageSrc: "https://rmit.instructure.com/courses/150784/files/42997146/preview",
                 imageSrcs: ["https://rmit.instructure.com/courses/150784/files/42999336/preview", "https://rmit.instructure.com/courses/150784/files/42999337/preview", "https://rmit.instructure.com/courses/150784/files/42999335/preview", "https://rmit.instructure.com/courses/150784/files/42999338/preview", "https://rmit.instructure.com/courses/150784/files/42999339/preview", "https://rmit.instructure.com/courses/150784/files/42999340/preview", "https://rmit.instructure.com/courses/150784/files/42999341/preview", "https://rmit.instructure.com/courses/150784/files/42999342/preview", "https://rmit.instructure.com/courses/150784/files/42999343/preview", "https://rmit.instructure.com/courses/150784/files/42999344/preview", "https://rmit.instructure.com/courses/150784/files/42999345/preview", "https://rmit.instructure.com/courses/150784/files/42999346/preview"]
             },
@@ -110,95 +110,101 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // 1. Get user inputs
-        const userHTML = document.getElementById("user-html").value;
-        if (!userHTML.trim()) {
-            alert("Please paste your syllabus HTML first.");
-            return;
-        }
-        const school = schoolSelect.value;
-        const scdProgram = document.getElementById("scd-program").value;
-        const layoutChoice = parseInt(document.getElementById("layout-choice").value);
-        const ilwPosition = parseInt(document.getElementById("ilw-position").value);
-        const coursePromise = document.getElementById("course-promise").value;
-
-        // 2. Parse the user's HTML into a modifiable DOM object
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(userHTML, 'text/html');
-
-        // 3. Select the correct image data based on school/program selection
-        let currentImageData;
-        if (school === 'SCD') {
-            currentImageData = schoolData.SCD.programs[scdProgram];
-        } else {
-            currentImageData = schoolData[school];
-        }
-
-        // 4. Update the header banner image
-        const headerImage = doc.querySelector('.emble-banner img, [id*="emble-customise"] img');
-        if (headerImage && currentImageData.headerImageSrc) {
-            headerImage.src = currentImageData.headerImageSrc;
-        }
-        
-        // 5. Update the Course Promise
-        if (coursePromise.trim() !== "") {
-            const coursePromiseElement = doc.querySelector('table.stem-bg-shadow p:first-child span');
-            if (coursePromiseElement) {
-                coursePromiseElement.textContent = coursePromise;
+        try {
+            // 1. Get user inputs
+            const userHTML = document.getElementById("user-html").value;
+            if (!userHTML.trim()) {
+                alert("Please paste your syllabus HTML first.");
+                return;
             }
-        }
+            const school = schoolSelect.value;
+            const scdProgram = document.getElementById("scd-program").value;
+            const layoutChoice = parseInt(document.getElementById("layout-choice").value);
+            const ilwPosition = parseInt(document.getElementById("ilw-position").value);
+            const coursePromise = document.getElementById("course-promise").value;
 
-        // 6. Process each module
-        const moduleContainers = doc.querySelectorAll('.col-xs-12.col-lg-4, .col-xs-12.col-lg-6');
-        moduleContainers.forEach((container, index) => {
-            if (index >= layoutChoice) return; // Skip extra modules if layout is smaller
-            
-            const moduleNumber = index + 1;
+            // 2. Parse the user's HTML into a modifiable DOM object
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(userHTML, 'text/html');
 
-            // a. Update module thumbnail image
-            const moduleImage = container.querySelector('img');
-            if (moduleImage && currentImageData.imageSrcs[index]) {
-                moduleImage.src = currentImageData.imageSrcs[index];
+            // 3. Select the correct image data based on school/program selection
+            let currentImageData;
+            if (school === 'SCD') {
+                currentImageData = schoolData.SCD.programs[scdProgram];
+            } else {
+                currentImageData = schoolData[school];
             }
 
-            // b. Update module name (if user provided one)
-            const newModuleName = document.querySelector(`input[name="module-name-${moduleNumber}"]`).value;
-            if (newModuleName.trim() !== "") {
-                const moduleNameElement = container.querySelector('h3 a span span'); // Deepest span holds the name
-                if (moduleNameElement) {
-                    moduleNameElement.innerHTML = moduleNameElement.innerHTML.replace(/(^\d+\.\s+)(.*)/, `$1${newModuleName}`);
-                }
+            // 4. Update the header banner image
+            const headerImage = doc.querySelector('.emble-banner img, [id*="emble-customise"] img');
+            if (headerImage && currentImageData.headerImageSrc) {
+                headerImage.src = currentImageData.headerImageSrc;
             }
             
-            // c. Update module description (if user provided one)
-            const newModuleDesc = document.querySelector(`textarea[name="topic-and-content-areas-${moduleNumber}"]`).value;
-            if (newModuleDesc.trim() !== "") {
-                const moduleDescElement = container.querySelector('p span');
-                if (moduleDescElement) {
-                    moduleDescElement.textContent = newModuleDesc;
+            // 5. Update the Course Promise
+            if (coursePromise.trim() !== "") {
+                const coursePromiseElement = doc.querySelector('table.stem-bg-shadow p:first-child > span');
+                if (coursePromiseElement) {
+                    coursePromiseElement.textContent = coursePromise;
                 }
             }
 
-            // d. Inject data-ruvn-sequence attribute
-            const sequenceCode = getSequenceCode(moduleNumber, ilwPosition, layoutChoice);
-            if (sequenceCode) {
-                container.setAttribute('data-ruvn-sequence', sequenceCode);
-            }
+            // 6. Process each module
+            const moduleContainers = doc.querySelectorAll('.col-xs-12.col-lg-4, .col-xs-12.col-lg-6');
+            moduleContainers.forEach((container, index) => {
+                if (index >= layoutChoice) return;
+                
+                const moduleNumber = index + 1;
 
-            // e. Inject data-ruvn-number attribute inside the title
-            const titleLink = container.querySelector('h3 a');
-            if (titleLink && !titleLink.querySelector('span[data-ruvn-number]')) {
-                const titleSpan = titleLink.querySelector('span > span');
-                if (titleSpan && titleSpan.textContent.match(/\d+/)) {
-                     titleSpan.innerHTML = titleSpan.innerHTML.replace(/(\d+)/, `<span data-ruvn-number="$1">$1</span>`);
+                // a. Update module thumbnail image
+                const moduleImage = container.querySelector('img');
+                if (moduleImage && currentImageData.imageSrcs[index]) {
+                    moduleImage.src = currentImageData.imageSrcs[index];
                 }
-            }
-        });
 
-        // 7. Output the final, modified HTML
-        const generatedCode = doc.body.innerHTML;
-        document.getElementById("generated-code").textContent = generatedCode;
-        copyButton.style.display = "inline-block";
+                // b. Update module name (if user provided one)
+                const newModuleNameInput = document.querySelector(`input[name="module-name-${moduleNumber}"]`);
+                if (newModuleNameInput && newModuleNameInput.value.trim() !== "") {
+                    const moduleNameElement = container.querySelector('h3 a span span');
+                    if (moduleNameElement) {
+                        moduleNameElement.innerHTML = moduleNameElement.innerHTML.replace(/(^\d+\.\s+)(.*)/, `$1${newModuleNameInput.value.trim()}`);
+                    }
+                }
+                
+                // c. Update module description (if user provided one)
+                const newModuleDescInput = document.querySelector(`textarea[name="topic-and-content-areas-${moduleNumber}"]`);
+                if (newModuleDescInput && newModuleDescInput.value.trim() !== "") {
+                    const moduleDescElement = container.querySelector('p span');
+                    if (moduleDescElement) {
+                        moduleDescElement.textContent = newModuleDescInput.value.trim();
+                    }
+                }
+
+                // d. Inject data-ruvn-sequence attribute
+                const sequenceCode = getSequenceCode(moduleNumber, ilwPosition, layoutChoice);
+                if (sequenceCode) {
+                    container.setAttribute('data-ruvn-sequence', sequenceCode);
+                }
+
+                // e. Inject data-ruvn-number attribute inside the title
+                const titleLink = container.querySelector('h3 a');
+                if (titleLink && !titleLink.querySelector('span[data-ruvn-number]')) {
+                    const titleSpan = titleLink.querySelector('span > span');
+                    if (titleSpan && titleSpan.textContent.match(/\d+/)) {
+                         titleSpan.innerHTML = titleSpan.innerHTML.replace(/(\d+)/, `<span data-ruvn-number="$1">$1</span>`);
+                    }
+                }
+            });
+
+            // 7. Output the final, modified HTML
+            const generatedCode = doc.body.innerHTML;
+            document.getElementById("generated-code").textContent = generatedCode;
+            copyButton.style.display = "inline-block";
+
+        } catch (error) {
+            console.error("An error occurred during processing:", error);
+            alert("An unexpected error occurred. Please check the developer console (F12) for more details and report the error.");
+        }
     });
 
     copyButton.addEventListener("click", function () {

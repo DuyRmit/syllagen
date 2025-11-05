@@ -1,85 +1,16 @@
 // ===================================================================================
-// 1. CENTRALIZED HTML TEMPLATES
-// All the reusable HTML structures are defined here once.
-// ===================================================================================
-
-const headerTemplate = `
-<div id="emble-customise-shared" class="customise emble emble-banner emble-prevent-insert emble-prevent-delete-recursive emble-banner-theme-rmit-light" style="padding: 0px; margin: 0px;" title="embedded content" data-context-menu="customise delete" data-customise="new-banner-theme" data-emble-name="Banner" data-emble-version="2.0">
-    <div>
-        <div style="display: grid; grid-template-columns: repeat(20,1fr); grid-auto-rows: 1fr; height: auto;">
-            <div style="grid-column: 1/21; grid-row: 1/12; z-index: 1; height: 100%; overflow: hidden; position: relative;">
-                <div style="width: 1040px; height: 100%;"><img style="display: block; min-height: 100%; width: 1040px; top: 0; left: 0;" role="presentation;" src="{{headerImageSrc}}" alt="" data-ally-user-updated-alt="" data-decorative="true" /></div>
-            </div>
-            <h2 style="grid-column: 2/20; grid-row: 4/10; z-index: 3; max-width: 100%;"><span style="vertical-align: middle; display: inline-block; text-align: left; color: #222160; text-decoration: none; font-family: museo700; font-size: 32pt;"><span class="stem-header-box-decoration-break" style="background-color: #e3e5e0; padding: 3px 15px; font-size: 32pt;">{{courseName}}</span></span><br /><span style="color: #ffffff; font-family: museo300;"><span style="font-size: 16px; background-color: #e61e2a; padding: 3px 15px;"><strong>{{courseCode}} | {{schoolName}}</strong></span></span></h2>
-            <div class="emble-banner-accent" style="z-index: 2; grid-row: 10/12;">
-                <div class="ribbon" style="grid-row: 10/12;"><img class="pixel-regular" src="/courses/88862/files/19139937/preview" data-api-endpoint="https://rmit.instructure.com/api/v1/courses/88862/files/19139937" data-api-returntype="File" /></div>
-            </div>
-        </div>
-    </div>
-</div>
-<p class="narrow-p"> </p>
-<table class="stem-bg-shadow" style="border-collapse: collapse; width: 100%; margin-left: auto; margin-right: auto; border: 1px solid #f1f2f3; border-top: 5px solid #222160;" role="presentation" cellpadding="10px">
-    <tbody>
-        <tr>
-            <td style="width: 100%; padding: 20px;">
-                <p><span dir="ltr">{{coursePromise}}</span></p>
-                <p><span><span class="TextRun SCXW24004924 BCX0" lang="EN-AU" data-contrast="auto"><span class="NormalTextRun SCXW24004924 BCX0">This Canvas course site will provide activities and materials to help you learn. You will also submit your <a class="inline_disabled" href="#">assessments</a> here. If you're not sure how to do something, check out our <a class="inline_disabled" href="#">help with Canvas</a>. </span></span></span></p>
-                <p>This course includes various interactive activities. If you're using a screen reader for the first time, refer to the <a class="inline_disabled" href="/courses/101397/pages/interactive-activity-instructions" target="_blank" rel="noopener">Interactive Activity Instructions</a> for guidance.</p>
-                <p id="emble-customise-5e591084" class="btn emble-btn customise emble-prevent-delete-recursive btn-blue" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a> <i class="icon-none"></i></a> <a class="inline_disabled" title="Link" href="#">Getting Started</a></p>
-                <span> </span>
-                <p id="emble-customise-228a2824" class="btn emble-btn btn-blue customise emble-prevent-delete-recursive" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a><i class="icon-none"> </i></a><a class="inline_disabled" title="Link" href="http://www1.rmit.edu.au/browse;ID=msrkgrf8e6ef1" target="_blank" rel="noopener">Course Guide </a></p>
-                <span> </span>
-                <p id="emble-customise-228a2824" class="btn emble-btn btn-blue customise emble-prevent-delete-recursive" data-context-menu="customise rce-link rce-course-links delete" data-customise="icon button-theme" data-emble-name="Button" data-emble-version="2.0"><a><i class="icon-none"> </i></a><a class="inline_disabled" title="Link" href="#">Digital Class Links</a></p>
-            </td>
-        </tr>
-    </tbody>
-</table>`;
-
-const moduleTemplate12 = `
-<div class="col-xs-12 col-lg-4" style="margin-top: 30px;">
-    <div id="1" style="display: table; height: 100%; border-bottom: 3px solid #222160;">
-        <div style="display: table-row;">
-            <div style="display: table-cell; background-color: #f0f1ef;"><img role="presentation" src="{{imageSrc}}" alt="" data-ally-user-updated-alt="" data-decorative="true" /></div>
-        </div>
-        <div style="display: table-row;">
-            <div style="display: table-cell; height: 100%; background-color: #f0f1ef; text-decoration: none; padding: 0px 20px 0px 20px; text-align: left;">
-                <h3><a class="inline_disabled" style="text-decoration: none;" href="{{moduleLink}}"><span style="font-size: 16pt; color: #222160; font-family: museo500; border-bottom: 3px solid #222160;"><span>{{moduleNumber}}. {{moduleName}}</span></span></a></h3>
-                <p><span dir="ltr">{{topicAndContentAreas}}</span></p>
-            </div>
-        </div>
-    </div>
-</div>`;
-
-const moduleTemplate8 = `
-<div class="col-xs-12 col-lg-6" style="margin-top: 30px;">
-    <div id="1" style="display: table; height: 100%; border-bottom: 3px solid #222160;">
-        <div style="display: table-row;">
-            <div style="display: table-cell; background-color: #f0f1ef;"><img role="presentation" src="{{imageSrc}}" alt="" data-ally-user-updated-alt="" data-decorative="true" /></div>
-        </div>
-        <div style="display: table-row;">
-            <div style="display: table-cell; height: 100%; background-color: #f0f1ef; text-decoration: none; padding: 0px 20px 0px 20px; text-align: left;">
-                <h3><a class="inline_disabled" style="text-decoration: none;" href="{{moduleLink}}"><span style="font-size: 16pt; color: #222160; font-family: museo500; border-bottom: 3px solid #222160;"><span>{{moduleNumber}}. {{moduleName}}</span></span></a></h3>
-                <p><span dir="ltr">{{topicAndContentAreas}}</span></p>
-            </div>
-        </div>
-    </div>
-</div>`;
-
-// ===================================================================================
-// 2. REFACTORED DATA OBJECT
-// This object now only contains the data that is unique to each school.
+// 1. DATA OBJECT
+// This object contains the data that is unique to each school template.
 // ===================================================================================
 
 const schoolData = {
     TBS: {
         headerImageSrc: "/courses/120329/files/44056963/preview",
-        imageSrcs: ["/courses/120329/files/44053587/preview", "/courses/120329/files/44053588/preview", "/courses/120329/files/44053589/preview", "/courses/120329/files/30651988/preview", "/courses/120329/files/30651979/preview", "/courses/120329/files/30651986/preview", "/courses/120329/files/30651982/preview", "/courses/120329/files/30651983/preview", "/courses/120329/files/30651980/preview", "/courses/120329/files/30651984/preview", "/courses/120329/files/30651985/preview", "/courses/120329/files/30651987/preview"],
-        moduleLinks: ["/courses/120329/modules/items/5085622", "/courses/120329/modules/items/5085633", "/courses/120329/modules/items/5085644", "/courses/120329/modules/items/5085655", "/courses/120329/modules/items/5085666", "/courses/120329/modules/items/5085677", "/courses/120329/modules/items/5085688", "/courses/120329/modules/items/5085699", "/courses/120329/modules/items/5085710", "/courses/120329/modules/items/5085721", "/courses/120329/modules/items/5085732", "/courses/120329/modules/items/5085743"]
+        imageSrcs: ["/courses/120329/files/44053587/preview", "/courses/120329/files/44053588/preview", "/courses/120329/files/44053589/preview", "/courses/120329/files/30651988/preview", "/courses/120329/files/30651979/preview", "/courses/120329/files/30651986/preview", "/courses/120329/files/30651982/preview", "/courses/120329/files/30651983/preview", "/courses/120329/files/30651980/preview", "/courses/120329/files/30651984/preview", "/courses/120329/files/30651985/preview", "/courses/120329/files/30651987/preview"]
     },
     SSET: {
         headerImageSrc: "/courses/137273/files/37388448/preview",
-        imageSrcs: ["/courses/137273/files/37388452/preview", "/courses/137273/files/37388453/preview", "/courses/137273/files/37388454/preview", "/courses/137273/files/37388455/preview", "/courses/137273/files/37388456/preview", "/courses/137273/files/37388457/preview", "/courses/137273/files/37388458/preview", "/courses/137273/files/37388459/preview", "/courses/137273/files/37388460/preview", "/courses/137273/files/37388461/preview", "/courses/137273/files/37388462/preview", "/courses/137273/files/37388463/preview"],
-        moduleLinks: ["/courses/137273/modules/items/6140119", "/courses/137273/modules/items/6140130", "/courses/137273/modules/items/6140141", "/courses/137273/modules/items/6140152", "/courses/137273/modules/items/6140163", "/courses/137273/modules/items/6140174", "/courses/137273/modules/items/6140185", "/courses/137273/modules/items/6140199", "/courses/137273/modules/items/6140210", "/courses/137273/modules/items/6140221", "/courses/137273/modules/items/6140232", "/courses/137273/modules/items/6140243"]
+        imageSrcs: ["/courses/137273/files/37388452/preview", "/courses/137273/files/37388453/preview", "/courses/137273/files/37388454/preview", "/courses/137273/files/37388455/preview", "/courses/137273/files/37388456/preview", "/courses/137273/files/37388457/preview", "/courses/137273/files/37388458/preview", "/courses/137273/files/37388459/preview", "/courses/137273/files/37388460/preview", "/courses/137273/files/37388461/preview", "/courses/137273/files/37388462/preview", "/courses/137273/files/37388463/preview"]
     },
     SCD: {
         programs: {
@@ -91,7 +22,7 @@ const schoolData = {
                 headerImageSrc: "https://rmit.instructure.com/courses/127983/files/33788546/preview",
                 imageSrcs: ["https://rmit.instructure.com/courses/127983/files/33788578/preview", "https://rmit.instructure.com/courses/127983/files/33789041/preview", "https://rmit.instructure.com/courses/127983/files/33789061/preview", "https://rmit.instructure.com/courses/127983/files/33789039/preview", "https://rmit.instructure.com/courses/127983/files/33789062/preview", "https://rmit.instructure.com/courses/127983/files/33788625/preview", "https://rmit.instructure.com/courses/127983/files/33789063/preview", "https://rmit.instructure.com/courses/127983/files/33788672/preview", "https://rmit.instructure.com/courses/127983/files/33789040/preview", "https://rmit.instructure.com/courses/127983/files/33788730/preview", "https://rmit.instructure.com/courses/127983/files/33789038/preview", "https://rmit.instructure.com/courses/127983/files/33789064/preview"]
             },
-            language: {
+             language: {
                 headerImageSrc: "https://rmit.instructure.com/courses/150784/files/42997146/preview",
                 imageSrcs: ["https://rmit.instructure.com/courses/150784/files/42999336/preview", "https://rmit.instructure.com/courses/150784/files/42999337/preview", "https://rmit.instructure.com/courses/150784/files/42999335/preview", "https://rmit.instructure.com/courses/150784/files/42999338/preview", "https://rmit.instructure.com/courses/150784/files/42999339/preview", "https://rmit.instructure.com/courses/150784/files/42999340/preview", "https://rmit.instructure.com/courses/150784/files/42999341/preview", "https://rmit.instructure.com/courses/150784/files/42999342/preview", "https://rmit.instructure.com/courses/150784/files/42999343/preview", "https://rmit.instructure.com/courses/150784/files/42999344/preview", "https://rmit.instructure.com/courses/150784/files/42999345/preview", "https://rmit.instructure.com/courses/150784/files/42999346/preview"]
             },
@@ -123,154 +54,168 @@ const schoolData = {
     }
 };
 
-const schoolNames = {
-    'TBS': 'The Business School',
-    'SSET': 'School of Science, Engineering & Technology',
-    'SCD': 'School of Communication Design'
-};
-
-
 // ===================================================================================
-// 3. APPLICATION LOGIC
-// All the functions and event listeners that make the page work.
+// 2. APPLICATION LOGIC & DOM MANIPULATION
 // ===================================================================================
 
-// Function to show/hide the SCD program dropdown
-function handleSchoolChange() {
-    const schoolSelectValue = document.getElementById("school").value;
+document.addEventListener('DOMContentLoaded', () => {
+
+    const schoolSelect = document.getElementById("school");
     const scdProgramContainer = document.getElementById("scd-program-container");
-    scdProgramContainer.style.display = (schoolSelectValue === 'SCD') ? 'block' : 'none';
-}
+    const form = document.getElementById("syllabus-form");
+    const copyButton = document.getElementById("copy-button");
 
-function generateModuleFields() {
-    const layoutChoice = parseInt(document.getElementById("layout-choice").value);
-    const moduleCount = layoutChoice === 12 ? 12 : 8;
-    const container = document.getElementById("module-container");
-    container.innerHTML = "";
+    // --- HELPER FUNCTIONS ---
 
-    let gridRow = '<div class="grid-row">';
-    for (let i = 1; i <= moduleCount; i++) {
-        const moduleHTML = `
-            <div class="col-xs-12 col-md-4">
-                <div class="module-box">
-                    <h3>Module ${i}</h3>
-                    <label>Module Name:</label>
-                    <input type="text" name="module-name-${i}" required placeholder="e.g. Introduction">
-                    <label>Topic and Content Areas (max 30 words):</label>
-                    <textarea name="topic-and-content-areas-${i}" rows="2" required placeholder="e.g. Digital Systems: Circuit design, simulation tools" oninput="limitWords(this, 30)"></textarea>
+    function handleSchoolChange() {
+        scdProgramContainer.style.display = (schoolSelect.value === 'SCD') ? 'block' : 'none';
+    }
+
+    function generateModuleFields() {
+        const layoutChoice = parseInt(document.getElementById("layout-choice").value);
+        const container = document.getElementById("module-container");
+        container.innerHTML = "";
+
+        let gridRow = '<div class="grid-row">';
+        for (let i = 1; i <= layoutChoice; i++) {
+            gridRow += `
+                <div class="col-md-4">
+                    <div class="module-box">
+                        <h3>Module ${i}</h3>
+                        <label>New Module Name:</label>
+                        <input type="text" name="module-name-${i}" placeholder="Leave blank to keep original">
+                        <label>New Topic/Content:</label>
+                        <textarea name="topic-and-content-areas-${i}" rows="3" placeholder="Leave blank to keep original"></textarea>
+                    </div>
                 </div>
-            </div>
-        `;
-        gridRow += moduleHTML;
-
-        if (i % 3 === 0 && i !== moduleCount) {
-            gridRow += '</div><div class="grid-row">';
-        }
-    }
-    gridRow += '</div>';
-    container.innerHTML = gridRow;
-}
-
-function limitWords(textarea, maxWords) {
-    const words = textarea.value.trim().split(/\s+/);
-    if (words.length > maxWords) {
-        textarea.value = words.slice(0, maxWords).join(' ');
-        alert(`Maximum of ${maxWords} words allowed. Extra words have been removed.`);
-    }
-}
-
-function parseUserHTML(html) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-
-    const bannerH2 = doc.querySelector('h2');
-    let school = document.getElementById("school").value;
-    let courseName = '';
-    let courseCode = '';
-    if (bannerH2) {
-        const spans = bannerH2.querySelectorAll('span');
-        courseName = spans[0]?.textContent.trim() || '';
-        const codeAndSchool = spans[1]?.textContent.trim().split(' | ') || [];
-        courseCode = codeAndSchool[0] || '';
-        const detectedSchoolName = codeAndSchool[1] || '';
-        if (detectedSchoolName === schoolNames['TBS']) school = 'TBS';
-        if (detectedSchoolName === schoolNames['SSET']) school = 'SSET';
-    }
-    return { school, courseName, courseCode };
-}
-
-// Add event listener for the school dropdown
-document.getElementById("school").addEventListener("change", handleSchoolChange);
-
-document.getElementById("syllabus-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const coursePromise = document.getElementById("course-promise").value;
-    const layoutChoice = parseInt(document.getElementById("layout-choice").value);
-    const moduleCount = layoutChoice === 12 ? 12 : 8;
-
-    const parsedData = parseUserHTML(document.getElementById("user-html").value);
-    const school = parsedData.school;
-    const schoolName = schoolNames[school];
-
-    let currentData;
-    let finalHeader;
-
-    if (school === 'SCD') {
-        const scdProgram = document.getElementById("scd-program").value;
-        currentData = schoolData.SCD.programs[scdProgram];
-        finalHeader = headerTemplate.replace("{{headerImageSrc}}", currentData.headerImageSrc);
-    } else {
-        currentData = schoolData[school];
-        finalHeader = headerTemplate.replace("{{headerImageSrc}}", currentData.headerImageSrc);
-    }
-
-    const moduleTemplate = layoutChoice === 12 ? moduleTemplate12 : moduleTemplate8;
-    
-    let generatedCode = finalHeader
-        .replace("{{courseName}}", parsedData.courseName || 'Unknown Course')
-        .replace("{{courseCode}}", parsedData.courseCode || 'Unknown Code')
-        .replace("{{schoolName}}", schoolName)
-        .replace("{{coursePromise}}", coursePromise);
-
-    let modulesHTML = '<div class="content-box" style="margin: 0 0;"><div class="grid-row">';
-    for (let i = 1; i <= moduleCount; i++) {
-        const moduleName = document.querySelector(`input[name="module-name-${i}"]`).value;
-        const topicAndContentAreas = document.querySelector(`textarea[name="topic-and-content-areas-${i}"]`).value;
-        const moduleLink = currentData.moduleLinks ? (currentData.moduleLinks[i - 1] || '#') : '#';
-
-        let moduleHTML = moduleTemplate
-            .replace("{{imageSrc}}", currentData.imageSrcs[i - 1])
-            .replace("{{moduleLink}}", moduleLink)
-            .replace("{{moduleNumber}}", i)
-            .replace("{{moduleName}}", moduleName)
-            .replace("{{topicAndContentAreas}}", topicAndContentAreas);
-        
-        modulesHTML += moduleHTML;
-
-        if ((layoutChoice === 12 && i % 3 === 0) || (layoutChoice === 8 && i % 2 === 0)) {
-            if (i !== moduleCount) {
-                modulesHTML += '</div></div><div class="content-box" style="margin: 0 0;"><div class="grid-row">';
+            `;
+            if (i % 3 === 0 && i !== layoutChoice) {
+                gridRow += '</div><div class="grid-row">';
             }
         }
+        gridRow += '</div>';
+        container.innerHTML = gridRow;
     }
-    modulesHTML += '</div></div><p> </p>';
-    generatedCode += modulesHTML;
 
-    document.getElementById("generated-code").textContent = generatedCode;
-    document.getElementById("copy-button").style.display = "inline-block";
-});
+    function getSequenceCode(weekNumber, ilwPosition, totalWeeks) {
+        if (weekNumber === ilwPosition) return "ILW";
+        let letterIndex = (weekNumber < ilwPosition) ? weekNumber - 1 : weekNumber - 2;
+        const maxLetters = totalWeeks === 12 ? 11 : 7;
+        if (letterIndex < maxLetters) return "T" + String.fromCharCode(65 + letterIndex);
+        return "";
+    }
 
-document.getElementById("copy-button").addEventListener("click", function() {
-    const generatedCode = document.getElementById("generated-code").textContent;
-    navigator.clipboard.writeText(generatedCode).then(() => {
-        alert("Code copied to clipboard!");
-    }).catch(err => {
-        console.error("Failed to copy: ", err);
-        alert("Failed to copy code to clipboard.");
+    // --- MAIN FORM SUBMISSION LOGIC ---
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // 1. Get user inputs
+        const userHTML = document.getElementById("user-html").value;
+        if (!userHTML) {
+            alert("Please paste your syllabus HTML first.");
+            return;
+        }
+        const school = schoolSelect.value;
+        const scdProgram = document.getElementById("scd-program").value;
+        const layoutChoice = parseInt(document.getElementById("layout-choice").value);
+        const ilwPosition = parseInt(document.getElementById("ilw-position").value);
+        const coursePromise = document.getElementById("course-promise").value;
+
+        // 2. Parse the user's HTML into a modifiable DOM object
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(userHTML, 'text/html');
+
+        // 3. Select the correct image data based on school/program selection
+        let currentImageData;
+        if (school === 'SCD') {
+            currentImageData = schoolData.SCD.programs[scdProgram];
+        } else {
+            currentImageData = schoolData[school];
+        }
+
+        // 4. Update the header banner image
+        const headerImage = doc.querySelector('.emble-banner img');
+        if (headerImage && currentImageData.headerImageSrc) {
+            headerImage.src = currentImageData.headerImageSrc;
+        }
+        
+        // 5. Update the Course Promise
+        const coursePromiseElement = doc.querySelector('table.stem-bg-shadow p:first-child span');
+        if (coursePromiseElement) {
+            coursePromiseElement.textContent = coursePromise;
+        }
+
+        // 6. Process each module
+        const moduleContainers = doc.querySelectorAll('.col-xs-12.col-lg-4, .col-xs-12.col-lg-6');
+        moduleContainers.forEach((container, index) => {
+            if (index >= layoutChoice) return; // Skip extra modules if layout is smaller
+            
+            const moduleNumber = index + 1;
+
+            // a. Update module thumbnail image
+            const moduleImage = container.querySelector('img');
+            if (moduleImage && currentImageData.imageSrcs[index]) {
+                moduleImage.src = currentImageData.imageSrcs[index];
+            }
+
+            // b. Update module name (if user provided one)
+            const newModuleName = document.querySelector(`input[name="module-name-${i}"]`).value;
+            if (newModuleName.trim() !== "") {
+                const moduleNameElement = container.querySelector('h3 a span span'); // Deepest span holds the name
+                if (moduleNameElement) {
+                    // This regex preserves the number but replaces the text
+                    moduleNameElement.innerHTML = moduleNameElement.innerHTML.replace(/(^\d+\.\s+)(.*)/, `$1${newModuleName}`);
+                }
+            }
+            
+            // c. Update module description (if user provided one)
+            const newModuleDesc = document.querySelector(`textarea[name="topic-and-content-areas-${i}"]`).value;
+            if (newModuleDesc.trim() !== "") {
+                const moduleDescElement = container.querySelector('p span');
+                if (moduleDescElement) {
+                    moduleDescElement.textContent = newModuleDesc;
+                }
+            }
+
+            // d. Inject data-ruvn-sequence attribute
+            const sequenceCode = getSequenceCode(moduleNumber, ilwPosition, layoutChoice);
+            if (sequenceCode) {
+                container.setAttribute('data-ruvn-sequence', sequenceCode);
+            }
+
+            // e. Inject data-ruvn-number attribute inside the title
+            const titleLink = container.querySelector('h3 a');
+            if (titleLink && !titleLink.querySelector('span[data-ruvn-number]')) {
+                const titleSpan = titleLink.querySelector('span > span'); // The span containing the text
+                if (titleSpan) {
+                    const match = titleSpan.textContent.match(/(\d+)/);
+                    if (match) {
+                        const number = match[1];
+                        titleSpan.innerHTML = titleSpan.innerHTML.replace(number, `<span data-ruvn-number="${number}">${number}</span>`);
+                    }
+                }
+            }
+        });
+
+        // 7. Output the final, modified HTML
+        const generatedCode = doc.body.innerHTML;
+        document.getElementById("generated-code").textContent = generatedCode;
+        copyButton.style.display = "inline-block";
     });
-});
 
-// Initial calls on page load
-handleSchoolChange();
-generateModuleFields();
+    copyButton.addEventListener("click", function () {
+        const generatedCode = document.getElementById("generated-code").textContent;
+        navigator.clipboard.writeText(generatedCode).then(() => {
+            alert("Code copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy: ", err);
+            alert("Copy to clipboard failed. Please copy manually.");
+        });
+    });
+
+    // --- INITIALIZATION ---
+    schoolSelect.addEventListener("change", handleSchoolChange);
+    handleSchoolChange();
+    generateModuleFields();
+});
